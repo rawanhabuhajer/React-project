@@ -1,0 +1,74 @@
+* {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.navbar{
+  background-color: #b03131;
+ 
+}
+.Navbar-text{
+  color: rgb(154, 0, 0);
+  font-weight: 700;
+}
+
+.nav-link{
+  color: #707070;
+}
+
+#navbarScrollingDropdown{
+  color: #707070;
+}
+.list{
+  color: #707070;}
+
+.me-2{
+background-color:#707070 ;
+border: none;
+height: 35px;
+margin-top: 0.8rem;
+}
+.search-btn{
+  border:#707070 solid 1px ;
+  background-color: #232323;
+  width: 8rem;
+  height: 35px;
+  margin-top: 0.8rem;
+  color: #707070;
+  
+}
+.search-btn:hover{
+  background-color:rgb(154, 0, 0) ;
+  border: none;
+  
+}
+.h{
+  color: #cccccc;
+  text-align: center;
+ font-size: 65px;
+}
+.main-img{
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+.main-img button{
+  width:12rem;
+  height: 50px;
+  background-color: #870400;
+  font-size: 20px;
+  color: #fff;
+  border:none;
+  
+}
+.main-img p{
+color: #fff;
+text-align: center;
+}
+main{
+  background-image: url(./Assets/plex.png);
+}
