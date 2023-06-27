@@ -1,16 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import Container from "react-bootstrap/Container";
-
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
+import { Link ,useEffect} from "react-router-dom";
+import './Home.css'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../App.css";
-import plex from "../App.css";
+import man from "../App.css";
 import movies from "./Data";
 import { useState } from "react";
 import { Card } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import "bootstrap/dist/css/bootstrap.min.css";
+import search from '../Assets/search.png'
+
 
 function Home() {
 
@@ -23,14 +25,25 @@ function Home() {
         })
         setMovieList(updatedList);
         console.log(updatedList);
+
+        
     }
   return (
   
     <div className="main-page">
-      <header>
-        <Navbar bg="light" expand="lg" className="navbar">
+      
+      <main
+        className="main-img"
+        style={{
+          backgroundImage: `url(${man})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+      >
+        <header>
+        <Navbar  expand="lg" className="navbar">
           <Container fluid>
-            <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+            <Navbar.Brand href="#" className='Navbar-text'>Movies.State</Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
               <Nav
@@ -38,75 +51,75 @@ function Home() {
                 style={{ maxHeight: "100px" }}
                 navbarScroll
               >
-                <Nav.Link href="#action1">Home</Nav.Link>
-                <Nav.Link href="#action2">Link</Nav.Link>
-                <NavDropdown title="Link" id="navbarScrollingDropdown">
-                  <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                  <NavDropdown.Item href="#action4">
-                    Another action
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action5">
-                    Something else here
-                  </NavDropdown.Item>
-                </NavDropdown>
-                <Nav.Link href="#" className="list">
-                  Link
-                </Nav.Link>
+                <div className="menu">
+                <Nav.Link to="Home">Home</Nav.Link>
+                <Nav.Link to="">Category</Nav.Link>
+                <Nav.Link to="">Sign in</Nav.Link>
+                </div>
               </Nav>
               
             </Navbar.Collapse>
           </Container>
         </Navbar>
       </header>
-      <main
-        className="main-img"
-        style={{
-          backgroundImage: `url(${plex})`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-        }}
-      >
         <div>
-          <h1 className="h">Where Cinema Comes Alive!</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <h1 className="h">Where Cinema Comes<br></br> <span className="alive">Alive!</span></h1>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing <br></br>elit.consectetur adipisicing elit</p>
         </div>
+        <div>
+   <div className="wrapper">
+    
         <input
         type="text"
         id="search-second"
         onChange={onInputItem}
         placeholder=""
+      
       />
-        <button>Start watching</button>
+<img src={search} alt="" className="search-icon" ></img>
+      </div>
+
+        </div>
+        {/* <div className="links-main">
+        <div>Privacy Policy</div>
+        <div>Terms of use</div>
+        <div>Settings</div>
+        </div> */}
       </main>
-      function
+      <h1 className="latest-movies">Discover Movies</h1>
       <div className="cards">
       {moviesList.map((movie, index) => (
         <div className="cardContainer" key={index}>
-          <Card style={{ width: "18rem" }} className="Crads">
-            <Card.Img
-              variant="top"
-              src={movie.img}
-              className="card-img"
-            ></Card.Img>
+          <Link to= {`/details/${movie.id}`} className="btn-text">
+          <Card style={{ width: "18rem" , height: '22rem',
+          backgroundImage: `url(${movie.img})`,
+          backgroundRepeat:"no-repeat",
+          backgroundSize:"cover",}} className="cards">
             <Card.Body>
-              <Card.Title className="title">{movie.title}</Card.Title>
-              <div className="info">
-                <div>
-                  <Card.Text> Year : {movie.year}</Card.Text>
-                  <Card.Text className="rate">Rate : {movie.rating}</Card.Text>
-                </div>
-                <Link
-                to= {`/details/${index}`} className="">Details</Link>
-              </div>
+              {/* <Card.Title className="title">{movie.title}</Card.Title> */}
+              
             </Card.Body>
           </Card>
+          </Link>
+          <div className="info">
+               <Card.Title className="title">{movie.title}</Card.Title>
+                <button className="deatiles-btn"> 
+                <Link to= {`/details/${movie.id}`} className="btn-text">Details</Link></button>
+               
+              </div>
           
         </div>
         
       ))}
       </div>
+      <div class="card-container"
+     
+      >
+ 
+</div>
     </div>
+
+    
   );
 }
 
@@ -115,3 +128,29 @@ export default Home;
         // <div>
         //   <Link to={"/details/5"}>aa</Link>
         // </div>
+
+        // `/details/${index}`
+
+      //   <div className="cards">
+      // {moviesList.map((movie, index) => (
+      //   <div className="cardContainer" key={index}>
+      //     <Card style={{ width: "18rem" , height: '22rem',
+      //     backgroundImage: `url(${movie.img})`,
+      //     backgroundRepeat:"no-repeat",
+      //     backgroundSize:"cover",}} className="cards">
+      //       <Card.Body>
+      //         <Card.Title className="title">{movie.title}</Card.Title>
+      //         <div className="info">
+                
+      //           <button className="deatiles-btn"> <Link
+      //           to= {`/details/${movie.id}`} className="btn-text">Details</Link></button>
+               
+      //         </div>
+      //       </Card.Body>
+      //     </Card>
+          
+      //   </div>
+        
+      // ))}
+      // </div>
+  
